@@ -1,0 +1,17 @@
+.rounded-4xl {
+  border-radius: 2rem;
+}
+
+.max-w-xxs {
+  max-width: 18rem;
+}
+
+.chart {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.expertise {
+  display: inline-block;
+  vertical-align: middle;
+}

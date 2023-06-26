@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="/style/stylec.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gradient-to-r from-blue-new to-blue-soft">
+    <div class="mx-24">
+      <div class="flex justify-between">
+        <div class="">
+          <h1 class="text-4xl font-bold mt-12 text-white max-w-xl"
+            >Prof. Dr. Ir. Bambang Prasetyo, M.T., Ph.D.
+          </h1>
+        </div>
+        <div class="mt-12 gap-10 mr-12">
+          <button
+            class="mr-12 bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-6 border-b-4 border-red-700 hover:border-red-500 rounded-xl"
+          >
+            Kembali
+          </button>
+          <button
+            class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-8 border-b-4 border-blue-700 hover:border-blue-500 rounded-xl"
+          >
+            Selengkapnya
+          </button>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <div class="mx-12">
+          <div
+            id="expertise"
+            class="bg-ijo text-xl text-white font-semibold shadow-2xl pr-14 pl-6 py-6 mt-12 rounded-4xl max-w-fit"
+          >
+            <p>Keahlian</p>
+            <ul class="ml-6 list-disc">
+              <li>
+                <p> Sistem Informasi</p>
+              </li>
+              <li>
+                <p> Artificial Intelligence </p>
+              </li>
+              <li>
+                <p> Network and Security </p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- component -->
+          <div class="mt-10 max-w-xxs py-4 bg-white shadow-2xl rounded-4xl">
+            <h1 class="font-semibold text-center pt-2">Article Quartile</h1>
+            <canvas class="p-8" id="chartDoughnut"></canvas>
+          </div>
+        </div>
+
+        <div class="">
+          <div class="flex items-center justify-center">
+            <img class="absolute bottom-0 h-full" src="/image/foto.png" />
+          </div>
+        </div>
+        <div class="mt-12">
+          <!--           
+          <div class="h-full bg-white p-8 shadow-2xl rounded-4xl">
+            <table
+              class="pb-5 charts-css column show-heading show-labels data-spacing-20"
+            >
+              <h1 class="font-semibold text-xl text-left">Jumlah Penelitian</h1>
+              <tbody
+                class="flex w-full text-[#000000] my-[24px!important] gap-x-[5px!important]"
+              >
+                <tr class="">
+                  <th>2022</th>
+                  <td class="rounded-full" style="--size: 0.2"></td>
+                </tr>
+                <tr>
+                  <th>2021</th>
+                  <td class="rounded-full" style="--size: 0.4"></td>
+                </tr>
+                <tr>
+                  <th>2020</th>
+                  <td class="rounded-full" style="--size: 0.6"></td>
+                </tr>
+                <tr>
+                  <th>2019</th>
+                  <td class="rounded-full" style="--size: 0.8"></td>
+                </tr>
+                <tr>
+                  <th>2018</th>
+                  <td class="rounded-full" style="--size: 1"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div> -->
+
+          <div
+            id="chart"
+            class="mx-12 h-full bg-white pt-6 px-4 rounded-4xl shadow-2xl"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Required chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Chart doughnut -->
+  <script>
+    const dataDoughnut = {
+      // labels: ["JavaScript", "Python", "Ruby"],
+      datasets: [
+        {
+          label: "My First Dataset",
+          data: [300, 50, 100],
+          backgroundColor: [
+            "rgba(239, 93, 168, 1)",
+            "rgba(93, 95, 239, 1)",
+            "rgba(165, 166, 246, 1)",
+          ],
+          hoverOffset: 4,
+        },
+      ],
+    };
+
+    const configDoughnut = {
+      type: "doughnut",
+      data: dataDoughnut,
+      options: {},
+    };
+
+    var chartBar = new Chart(
+      document.getElementById("chartDoughnut"),
+      configDoughnut
+    );
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css"
+  />
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script>
+    var options = {
+      series: [
+        {
+          name: "Inflation",
+          data: [5, 2, 7, 10, 4],
+        },
+      ],
+      chart: {
+        height: "100%",
+        type: "bar",
+        offsetY: 10,
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 10,
+          dataLabels: {
+            position: "top", // top, center, bottom
+          },
+        },
+      },
+      dataLabels: {
+        enabled: true,
+        // formatter: function (val) {
+        //   return val + "%";
+        // },
+        offsetY: -20,
+        style: {
+          fontSize: "12px",
+          colors: ["#304758"],
+        },
+      },
+
+      xaxis: {
+        categories: ["2019", "2020", "2021", "2022", "2023"],
+        position: "top",
+        axisBorder: {
+          show: false,
+        },
+        axisTicks: {
+          show: false,
+        },
+        crosshairs: {
+          fill: {
+            type: "gradient",
+            gradient: {
+              colorFrom: "#D8E3F0",
+              colorTo: "#BED1E6",
+              stops: [0, 100],
+              opacityFrom: 0.4,
+              opacityTo: 0.5,
+            },
+          },
+        },
+        tooltip: {
+          enabled: true,
+        },
+        offsetY: 10,
+      },
+      yaxis: {
+        axisBorder: {
+          show: false,
+        },
+        axisTicks: {
+          show: false,
+        },
+        labels: {
+          show: false,
+          // formatter: function (val) {
+          //   return val + "%";
+          // },
+        },
+      },
+      title: {
+        text: "Jumlah Penelitian",
+        floating: true,
+        offsetY: -6,
+        align: "center",
+        style: {
+          color: "#3A4F7A",
+        },
+      },
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+
+    console.log(chart);
+  </script>
+</html>
